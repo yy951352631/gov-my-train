@@ -1,0 +1,3 @@
+# Project exclude paths
+/gov-my-train-common/target/
+/gov-my-train-main/target/
