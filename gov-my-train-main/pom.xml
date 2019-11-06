@@ -47,6 +47,14 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--解决告警未知的枚举常量 JAVAX.ANNOTATION.META.WHEN.MAYBE 问题 -->
+<!--        <dependency>-->
+<!--            <groupId>com.google.code.findbugs</groupId>-->
+<!--            <artifactId>annotations</artifactId>-->
+<!--            <version>3.0.1</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
 

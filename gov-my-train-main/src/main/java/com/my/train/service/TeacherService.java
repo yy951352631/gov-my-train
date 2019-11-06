@@ -1,26 +1,33 @@
 package com.my.train.service;
 
 import com.my.train.model.Teacher;
+import com.my.train.repository.MyJpaRepository;
 import com.my.train.repository.TeacherRepository;
-import com.my.train.util.IdUtil;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * @author Wtq
- * @date 2019/10/23 - 14:06
- */
+        * @date 2019/11/5 - 11:02
+        */
 @Service
-public class TeacherService {
+public class TeacherService extends AbstractMainModelService<Teacher>{
 
     @Autowired
-    TeacherRepository teacherRepository;
+    private TeacherRepository teacherRepository;
 
-    public Teacher save(Teacher teacher) {
-        if(StringUtils.isBlank(teacher.getId())){
-            teacher.setId(IdUtil.generateId());
-        }
-        return teacherRepository.save(teacher);
+    @Override
+    protected MyJpaRepository getRepo() {
+        //为父类赋值具体的repository
+        return teacherRepository;
+    }
+
+    @Override
+    public Teacher create(Teacher model, boolean publishEvent) {
+        return super.create(model, publishEvent);
+    }
+
+    public int countById(String id){
+        return 0;
     }
 }

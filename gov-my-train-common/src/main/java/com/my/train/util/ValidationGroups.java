@@ -4,7 +4,11 @@ package com.my.train.util;
  * @author Wtq
  * @date 2019/10/22 - 17:55
  */
-public final class ValidationGroup {
+
+/**
+ * 以便进行统一的分组校验
+ */
+public final class ValidationGroups {
     public interface Create extends javax.validation.groups.Default {
     }
 
@@ -16,5 +20,4 @@ public final class ValidationGroup {
 
     public interface Association {
     }
-
 }

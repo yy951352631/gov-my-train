@@ -11,8 +11,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gov-my-train-main" />
         <module name="gov-my-train-common" />
+        <module name="gov-my-train-main" />
       </profile>
     </annotationProcessing>
   </component>

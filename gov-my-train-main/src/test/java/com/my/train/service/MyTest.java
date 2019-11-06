@@ -25,10 +25,9 @@ public class MyTest {
     @Test
     public void test01(){
         Teacher teacher = new Teacher();
-        teacher.setCode("tc");
+//        teacher.setCode("tc");
         teacher.setSubject("语文");
         teacher.setDescription("教授课程");
-        teacher.setSalary(5000.0);
-        teacherService.save(teacher);
+        teacherService.create(teacher);
     }
 }

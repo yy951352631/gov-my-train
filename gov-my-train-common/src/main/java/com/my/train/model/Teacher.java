@@ -1,14 +1,15 @@
 package com.my.train.model;
 
 import com.my.train.CommonConstants;
-import com.my.train.util.ValidationGroup;
+import com.my.train.util.ValidationGroups;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import java.util.Date;
 
 /**
  * @author Wtq
@@ -22,13 +23,8 @@ public class Teacher extends AbstractMainModel {
     @Column(name = "subject")
     private String subject; //教授课程
 
-
-    public Teacher(String subject) {
-        this.subject = subject;
-    }
-
-    public Teacher(@NotBlank(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class}) String code, @NotBlank(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class}) String description, @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class}) Double salary, String subject) {
-        super(code, description, salary);
+    public Teacher(@Null(groups = ValidationGroups.Create.class) @NotBlank(groups = {ValidationGroups.Update.class, ValidationGroups.Association.class}) String id, @NotBlank(groups = {ValidationGroups.Create.class, ValidationGroups.Update.class}) String code, @NotBlank(groups = {ValidationGroups.Create.class, ValidationGroups.Update.class}) String description, Date createdDate, Date lastModifiedDate, String subject) {
+        super(id, code, description, createdDate, lastModifiedDate);
         this.subject = subject;
     }
 
@@ -49,6 +45,4 @@ public class Teacher extends AbstractMainModel {
                 "subject='" + subject + '\'' +
                 '}';
     }
-
-
 }
